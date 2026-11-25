@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="am">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>እውነተኛ ጓደኝነት — 3D የጓደኝነት ስጦታ</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Ethiopic:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div id="canvas-container"></div>
+
+  <!-- የላይኛው ርዕስ -->
+  <header class="top-bar">
+    <h1>✨ እውነተኛ ጓደኝነት ✨</h1>
+    <p>በጣትህ/በማውስ አዙር • ፎቶዎችን እና መልዕክቱን ንካ</p>
+  </header>
+
+  <!-- የታችኛው መቆጣጠሪያ አዝራሮች -->
+  <div class="controls">
+    <button id="btn-message" class="btn primary">📜 የጓደኝነት መልዕክት</button>
+    <button id="btn-gallery" class="btn">📸 28 ትዝታዎች</button>
+    <button id="btn-next-photo" class="btn">⏭ ቀጣይ ፎቶ</button>
+    <button id="btn-music" class="btn">🎵 ሙዚቃ: ዝግ</button>
+  </div>
+
+  <!-- የጓደኝነት መልዕክት መስኮት (Modal) -->
+  <div id="message-modal" class="modal hidden">
+    <div class="modal-content">
+      <button class="close-btn" data-close="message-modal">&times;</button>
+      <h2>📜 ስለ እውነተኛ ጓደኝነት</h2>
+      <div class="letter-body">
+        <p>ጓደኝነት ማለት እንዲሁ በጥሬ ትርጉሙ ስንመለከተው አብሮ መብላት፣ አብሮ መጠጣት፣ አብሮ መዋል ወዘተ... የሚሉ ትርጉሞችን እንሰጠዋለን።</p>
+        <p>ይህን ትርጉም ከተስማማንበት ደግሞ ጌታችንና ሐዋርያት ጓደኛሞች ነበሩ ብንል ድፍረት አይሆንብንም፤ ምክንያቱም አሁን ከሰጠነው ትርጉምም በተለየ መልኩ ስለሆነ ግንኙነታቸው አብረውት ነበር የሚውሉት፣ የሚበሉት፣ የሚጠጡት። ተአምራትን ሲያደርግ ድንቅን ሲፈፅም ይመለከቱት ነበር።</p>
+        <p>የጴጥሮስን ጓደኝነት ለአብነት ብንመለከት ቀዳሚነት ሁል ጊዜ ከፊት መሆኑን ለጌታው ለማሳየት የሚጥር፣ የሚተጋ፣ ከፊት መቅደምን የሚፈልግ፣ ፍቅሩን ለመግለጽ የሚቸኩል የዋህ ጓደኛ ነው ማለት እንችላለን።</p>
+        <p>ጌታው "ማን ትሉኛላችሁ?" ሲል ከደቀመዛሙርቱ ሁሉ ቀድሞ "አንተ የሕያው የእግዚአብሔር ልጅ ነህ" ብሎ የመለሰ፤ ጌታው እንደሚሰቀል ሲናገር "አይሁንብህ" ያለ፤ አሳልፎ ስለመስጠት ሲወራም "ሁሉም ቢክድህ እኔ ግን አልክድህም" ያለ ወዳጅ ነበር፤ ግን የመከራው ቀን ላይ ቀድሞ የወደቀ የጓደኝነት ሚዛን የሳተ ነገርን ያደረገ ጓደኛ ሆነ።</p>
+        <p>በሌላ በኩል ደግሞ እንደ ቅዱስ ዮሐንስ ያለ ጓደኝነት አለ፤ በተድላው በደስታው ወራት አብሮ መሆን ብቻ ሳይሆን በመከራው በችግሩ ወቅት አብሮ ከመከራው ከመስቀሉ ሥር መገኘት እንዳለብን የሚያሳይ፣ የሚያስገነዝብ፣ አብረን በመገኘታችንም ሽልማትን እንደምናገኝ የሚያመለክት ጓደኝነት። ቅዱስ ዮሐንስ መስቀሉ ሥር በመገኘቱ፣ መከራው ሥር በመቆሙ እናትን በሽልማት ተቀበለ።</p>
+
+        <blockquote class="scripture">
+          “ወዳጅ በዘመኑ ሁሉ ይወድዳል፤ ወንድምም ለመከራ ይወለዳል።”
+          <span>— ምሳሌ 17፥17</span>
+        </blockquote>
+
+        <blockquote class="quote">
+          “ለወንድሙ ሕይወቱን አሳልፎ የሚሰጥ ሰው፣ በሥራው ክርስቶስን ይኮርጃል። እውነተኛ ወዳጅነት የሚለካው በንግግር ሳይሆን፣ ባንተ ላይ የደረሰውን መከራ ወዳጅህ በትከሻው ተሸክሞ ሲያወጣህ ነው። ፍቅር ሲጠናከር፣ 'የእኔ' የሚባለው ነገር ሁሉ ለወንድምህ አገልግሎት ይውላል።”
+          <span>— ቅዱስ ዮሐንስ አፈወርቅ፣ "በማቴዎስ ወንጌል ትርጓሜ ላይ የተሰጠ ስብከት" (Homily 77 on Matthew.)</span>
+        </blockquote>
+      </div>
+    </div>
+  </div>
+
+  <!-- የ28 ፎቶዎች ማሳያ መስኮት (Gallery Modal) -->
+  <div id="gallery-modal" class="modal hidden">
+    <div class="modal-content gallery-box">
+      <button class="close-btn" data-close="gallery-modal">&times;</button>
+      <h2>📸 የጓደኝነት ትዝታዎቻችን (28 ፎቶዎች)</h2>
+      <div id="photo-grid" class="photo-grid"></div>
+    </div>
+  </div>
+
+  <audio id="bg-audio"></audio>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
